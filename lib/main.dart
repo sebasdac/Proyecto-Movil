@@ -1,20 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-void main() {
-  runApp(const MainApp());
+import 'package:get_storage/get_storage.dart';
+import 'package:proyecto_movil/controllers/auth_controller.dart';
+import 'package:proyecto_movil/routes/app_routes.dart';
+
+void main() async {
+  await GetStorage.init();
+  Get.put(AuthController());// inyectar controlador
+  runApp(MainApp());
 }
 
 class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+
+  final auth = Get.find<AuthController>();
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
-    );
+     return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      initialRoute: auth.token!=null ? '/home' : '/login',
+      getPages: AppRoutes.routes,
+     );
   }
 }
