@@ -12,6 +12,9 @@ dependencies:
   get: ^4.7.2
   get_storage: ^2.1.1
   http: ^1.3.0
+  open_file: ^3.5.10
+  path_provider: ^2.1.5
+  pdf: ^3.11.3
   permission_handler: ^12.0.0+1
 
 dev_dependencies:
@@ -47,4 +50,3 @@ flutter:
   uses-material-design: true
   assets:
     - lib/assets/logo-cuc.png
-

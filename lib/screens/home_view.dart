@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import '../controllers/auth_controller.dart';
 
 
@@ -9,6 +10,8 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final user = authController.user.value;
+    final storage = GetStorage();
+    final token = storage.read('token');
 
     return Scaffold(
       appBar: AppBar(
@@ -23,7 +26,7 @@ class HomeView extends StatelessWidget {
         ],
       ),
       body: Center(
-        child: Text('Token: ${user?.accessToken ?? ''}'),
+        child: Text('Token: ${token ?? ''}'),
       ),
     );
   }
