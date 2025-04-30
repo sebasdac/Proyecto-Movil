@@ -1,5 +1,6 @@
 // bottom_nav_view.dart
 import 'package:flutter/material.dart';
+import 'package:proyecto_movil/screens/consultar_matricula_view.dart';
 import 'package:proyecto_movil/screens/home_view.dart';
 import 'package:proyecto_movil/screens/consultar_promedio_screen.dart';
 
@@ -15,6 +16,7 @@ class _BottomNavViewState extends State<BottomNavView> {
   final List<Widget> _pages = [
     HomeView(),
     ConsultarPromedioScreen(),
+    ConsultarMatriculaView(),
    
   ];
 
@@ -39,6 +41,10 @@ class _BottomNavViewState extends State<BottomNavView> {
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
             label: 'Promedios',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.functions),
+            label: 'Matricula',
           ),
         ],
       ),
